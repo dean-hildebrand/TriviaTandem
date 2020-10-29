@@ -1,10 +1,9 @@
 import React from 'react'
 
 function Question(props) {
-
+{console.log("Questions",props)}
   return (
     <div>
-    {console.log("Question Component",props.questions)}
     </div>
   )
 }
