@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Question() {
+function Question(props) {
   return (
-    <div>Single Question</div>
+    <div>{props.question}</div>
   )
 }
 
