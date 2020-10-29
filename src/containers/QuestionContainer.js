@@ -13,6 +13,10 @@ class QuestionContainer extends React.Component {
   .then(data => this.setState({ questionsArr: data}))
   }
 
+  getQuestions(){
+
+  }
+
   render() {
     return (
   <div>
