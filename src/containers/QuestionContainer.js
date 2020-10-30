@@ -23,15 +23,13 @@ class QuestionContainer extends React.Component {
       .then((res) => res.json())
       .then((data) =>
         this.setState({
-          questionsArr: shuffle.pick(data, { 'picks': 10 }),
+          questionsArr: shuffle.pick(data, { picks: 10 }),
           loading: false,
         })
       );
   }
 
   render() {
-    console.log("ques",this.state.questionsArr)
-
     return (
       <div>
         <h1>Question Container</h1>
