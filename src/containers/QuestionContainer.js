@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Question from "../presentational/Question.js";
+import swal from 'sweetalert';
 var shuffle = require("shuffle-array");
 
 class QuestionContainer extends Component {
@@ -27,49 +28,51 @@ class QuestionContainer extends Component {
     // let array = this.state.questionArr;
 
     if (this.state.answeredQuestion.length < this.state.questionArr.length) {
-      let currentQuestion = this.state.questionArr.find((q) => !this.state.answeredQuestion.includes(q));
-      this.setState({ currentQuestion: currentQuestion, answered: false });
+      let currentQuestion = this.state.questionArr.find(
+        (q) => !this.state.answeredQuestion.includes(q)
+      );
+      this.setState({
+        currentQuestion: currentQuestion,
+        answered: false,
+      });
     } else {
-      // sweet alert
-      alert("Game Over");
+      swal("Game Over");
     }
-  }
+  };
 
-  rightAnswer = e => {
-    alert("Correct!")
+  rightAnswer = (e) => {
+    swal("Correct!", "Keep it up!", "success");
     this.setState({
       answeredQuestion: [...this.state.answeredQuestion, e],
       answered: !this.state.answered,
-        score: this.state.score + 1
+      score: this.state.score + 1,
     });
-  }
+  };
 
-  wrongAnswer = e => {
-    alert("Sorry, thats the wrong answer!");
+  wrongAnswer = (e) => {
+    swal("Incorrect", "Try again!", "error");
     this.setState({
       answeredQuestion: [...this.state.answeredQuestion, e],
-      answered: !this.state.answered
+      answered: !this.state.answered,
     });
-  }
+  };
 
   render() {
-    console.log("Current Question", this.state.currentQuestion);
     return (
       <div>
-        {this.state.currentQuestion.question ?
+        {this.state.currentQuestion.question ? (
           <Question
-            // questions={this.state.questionsArr}
             currentQ={this.state.currentQuestion}
             answered={this.state.answered}
             right={this.rightAnswer}
             wrong={this.wrongAnswer}
             next={this.showQuestion}
           />
-         : null}
+        ) : null}
 
-         <h2 class="score">{this.state.score}</h2>
+        <h2 class="score">{this.state.score}</h2>
       </div>
-    )
+    );
   }
 }
 
