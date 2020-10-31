@@ -1,0 +1,13 @@
+
+.question {
+  width: 100%;
+  text-align:center;
+  margin-top: 10%;
+}
+
+
+.btn {
+  border-radius: 25px;
+  padding: 30px;
+  margin:10px;
+}

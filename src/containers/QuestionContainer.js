@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Question from "../presentational/Question.js";
+import cssStyle from '../css/QuestionContainer.css'
 import swal from 'sweetalert';
 var shuffle = require("shuffle-array");
 
@@ -70,7 +71,7 @@ class QuestionContainer extends Component {
           />
         ) : null}
 
-        <h2 class="score">{this.state.score}</h2>
+        <h2 className="score">{this.state.score}</h2>
       </div>
     );
   }
