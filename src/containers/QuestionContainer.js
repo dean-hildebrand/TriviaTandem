@@ -22,7 +22,7 @@ class QuestionContainer extends Component {
       );
   }
 
-  showQuestion() {
+  showQuestion = () => {
     // let answered = this.state.answeredQuestion;
     // let array = this.state.questionArr;
 
@@ -66,6 +66,8 @@ class QuestionContainer extends Component {
             next={this.showQuestion}
           />
          : null}
+
+         <h2 class="score">{this.state.score}</h2>
       </div>
     )
   }
