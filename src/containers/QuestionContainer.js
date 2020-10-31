@@ -23,11 +23,11 @@ class QuestionContainer extends Component {
   }
 
   showQuestion() {
-    let answered = this.state.answered;
-    let array = this.state.questionArr;
+    // let answered = this.state.answeredQuestion;
+    // let array = this.state.questionArr;
 
-    if (answered.length < array.length) {
-      let currentQuestion = array.find((q) => !answered.includes(q));
+    if (this.state.answeredQuestion.length < this.state.questionArr.length) {
+      let currentQuestion = this.state.questionArr.find((q) => !this.state.answeredQuestion.includes(q));
       this.setState({ currentQuestion: currentQuestion, answered: false });
     } else {
       // sweet alert
@@ -35,25 +35,25 @@ class QuestionContainer extends Component {
     }
   }
 
-  rightAnswer(e) {
-    alert("Correct!");
+  rightAnswer = e => {
+    alert("Correct!")
     this.setState({
       answeredQuestion: [...this.state.answeredQuestion, e],
       answered: !this.state.answered,
-        score: this.state.score++
+        score: this.state.score + 1
     });
   }
 
-  wrongAnswer(e) {
+  wrongAnswer = e => {
     alert("Sorry, thats the wrong answer!");
     this.setState({
       answeredQuestion: [...this.state.answeredQuestion, e],
-      answered: !this.state.answered,
+      answered: !this.state.answered
     });
   }
 
   render() {
-    // console.log("Current Question", this.state.currentQuestion.question);
+    console.log("Current Question", this.state.currentQuestion);
     return (
       <div>
         {this.state.currentQuestion.question ?
