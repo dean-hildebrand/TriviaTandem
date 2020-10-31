@@ -1,42 +1,37 @@
 import React from "react";
-
-// <div className="count">
-//   <span>Question 1</span>
-//   <div className="question-text">
-//     {this.props.questions[0].question}
-//   </div>
-//   <div className="answers-div">
-//   {this.props.questions[0].incorrect.map((answer) => (
-//     <button
-//     key={"index"}
-//     className="answer-btn"
-//     >{answer}
-//     </button>
-//   ))}
-//   {
-//     <button
-//     key={"index"}
-//     className="answer-btn"
-//     >{this.props.questions[0].correct}
-//     </button>
-//   }
-//
-//   </div>
-// </div>
+var shuffle = require('shuffle-array')
 
 
-function Question() {
-  // console.log("question",this.props)
+const Question = (props) => {
+  const { correct, incorrect, question } = props.currentQ
+  let answers = [...props.currentQ.incorrect, props.currentQ.correct]
+  console.log("question", correct);
+
+ // == correct.toLowerCase() ? props.right(props.currentQ) : props.wrong(props.currentQ
   return (
-    <div className="question-div">
-      <div className="count">
-      <span>Question 1</span>
-      <div className="question-text"></div>
+    <div className="question">
+      <div className="question-div">
+        <h1>{props.currentQ.question}</h1>
       </div>
 
-    </div>
-  )
-}
+      {!props.answered ?
+           shuffle(answers).map( answer => {
+           return (
+            <button
+             onClick={(e) => e.target.innerText.toLowerCase() == correct.toLowerCase() ? props.right(props.currentQ) : props.wrong(props.currentQ)  }
+               >
+               {answer}
+               </button>)
 
+
+        })
+        : <button onClick={() => props.next()}>Next Question</button>
+      }
+
+
+
+    </div>
+  );
+};
 
 export default Question;
