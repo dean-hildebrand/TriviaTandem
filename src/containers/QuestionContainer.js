@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Question from "../presentational/Question.js";
-import cssStyle from '../css/QuestionContainer.css'
-import swal from 'sweetalert';
+import cssStyle from "../css/QuestionContainer.css";
+import swal from "sweetalert";
 var shuffle = require("shuffle-array");
 
 class QuestionContainer extends Component {
@@ -25,7 +25,6 @@ class QuestionContainer extends Component {
   }
 
   showQuestion = () => {
-
     if (this.state.answeredQuestion.length < this.state.questionArr.length) {
       let currentQuestion = this.state.questionArr.find(
         (q) => !this.state.answeredQuestion.includes(q)
@@ -35,10 +34,9 @@ class QuestionContainer extends Component {
         answered: false,
       });
     } else {
-      swal("Game Over", "Your score was" + " " + this.state.score)
+      swal("Game Over", "Your score was" + " " + this.state.score);
     }
   };
-
 
   rightAnswer = (e) => {
     swal("Correct!", "Keep it up!", "success");
@@ -70,7 +68,7 @@ class QuestionContainer extends Component {
           />
         ) : null}
 
-        <h2 className="score">{this.state.score}</h2>
+        <h2 className="score"> Current Score: {this.state.score}</h2>
       </div>
     );
   }

@@ -8,7 +8,6 @@ const Question = (props) => {
   let answers = [...props.currentQ.incorrect, props.currentQ.correct];
   console.log("question", correct);
 
-  // == correct.toLowerCase() ? props.right(props.currentQ) : props.wrong(props.currentQ
   return (
     <div className="question">
 
