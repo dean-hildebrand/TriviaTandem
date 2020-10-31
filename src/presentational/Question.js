@@ -28,9 +28,13 @@ import React from "react";
 class Question extends React.Component {
 
   render() {
-    return this.props.questionsArr ? (
+    console.log("question",this.props.questions)
+    return this.props.questions ? (
       <div className="question-div">
-
+        <div className="count">
+        <span>Question 1</span>
+        <div className="question-text">{this.props.questions[0].question}</div>
+        </div>
 
       </div>
     ) : null;
