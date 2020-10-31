@@ -25,20 +25,18 @@ import React from "react";
 // </div>
 
 
-class Question extends React.Component {
-
-  render() {
-    console.log("question",this.props.questions)
-    return this.props.questions ? (
-      <div className="question-div">
-        <div className="count">
-        <span>Question 1</span>
-        <div className="question-text">{this.props.questions[0].question}</div>
-        </div>
-
+function Question() {
+  // console.log("question",this.props)
+  return (
+    <div className="question-div">
+      <div className="count">
+      <span>Question 1</span>
+      <div className="question-text"></div>
       </div>
-    ) : null;
-  }
+
+    </div>
+  )
 }
+
 
 export default Question;
