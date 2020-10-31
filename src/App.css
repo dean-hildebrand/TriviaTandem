@@ -1,1 +1,30 @@
+body {
+  background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(242,98,11,1) 22%, rgba(236,101,17,1) 37%, rgba(219,226,16,1) 61%, rgba(163,24,23,1) 85%, rgba(0,0,0,1) 100%);
+}
+.App {
+  text-align: center;
+  margin-top: 20%;
+}
 
+.header {
+  font-size: 75px;
+}
+
+
+.start-btn {
+    display: inline-block;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+    color: rgb(0,0,0);
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+.start-btn:hover {
+  cursor: pointer;
+  background-color: rgba(242,98,11,1);
+}

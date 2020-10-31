@@ -17,8 +17,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+      <div className="header">
+      <h1>Tandem-Trivia</h1>
+      </div>
         {!this.state.playQuiz ? (
-          <button onClick={() => this.playQuiz()}>Test your Knowledge</button>
+          <button className="btn start-btn" onClick={() => this.playQuiz()}>START</button>
         ) : (
           <QuestionContainer />
         )}

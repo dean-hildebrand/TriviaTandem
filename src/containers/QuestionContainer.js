@@ -25,8 +25,6 @@ class QuestionContainer extends Component {
   }
 
   showQuestion = () => {
-    // let answered = this.state.answeredQuestion;
-    // let array = this.state.questionArr;
 
     if (this.state.answeredQuestion.length < this.state.questionArr.length) {
       let currentQuestion = this.state.questionArr.find(
@@ -37,9 +35,10 @@ class QuestionContainer extends Component {
         answered: false,
       });
     } else {
-      swal("Game Over");
+      swal("Game Over", "Your score was" + " " + this.state.score)
     }
   };
+
 
   rightAnswer = (e) => {
     swal("Correct!", "Keep it up!", "success");
