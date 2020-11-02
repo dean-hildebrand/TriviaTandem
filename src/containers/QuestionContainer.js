@@ -2,31 +2,20 @@ import React, { Component } from "react";
 import Question from "../presentational/Question.js";
 import cssStyle from "../css/QuestionContainer.css";
 import swal from "sweetalert";
-var shuffle = require("shuffle-array");
 
 class QuestionContainer extends Component {
   state = {
-    questionArr: [],
-    currentQuestion: {},
+    questionArr: this.props.questionArr,
+    currentQuestion: this.props.questionArr[0],
     answeredQuestion: [],
     score: 0,
+    showTrivia: false,
     answered: false,
   };
 
-  componentDidMount() {
-    fetch("http://localhost:3000/questions.json")
-      .then((res) => res.json())
-      .then((data) =>
-        this.setState({
-          questionArr: shuffle.pick(data, { picks: 10 }),
-          currentQuestion: data[0],
-        })
-      );
-  }
-
   showQuestion = () => {
-    if (this.state.answeredQuestion.length < this.state.questionArr.length) {
-      let currentQuestion = this.state.questionArr.find(
+    if (this.state.answeredQuestion.length < this.props.questionArr.length) {
+      let currentQuestion = this.props.questionArr.find(
         (q) => !this.state.answeredQuestion.includes(q)
       );
       this.setState({

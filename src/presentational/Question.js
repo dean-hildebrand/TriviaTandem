@@ -6,7 +6,6 @@ var shuffle = require("shuffle-array");
 const Question = (props) => {
   const { correct, incorrect, question } = props.currentQ;
   let answers = [...props.currentQ.incorrect, props.currentQ.correct];
-  console.log("question", correct);
 
   return (
     <div className="question">
